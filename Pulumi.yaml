@@ -1,0 +1,3 @@
+name: demo-pulumi-aws
+runtime: dotnet
+description: A minimal AWS C# Pulumi program
