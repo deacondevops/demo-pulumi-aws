@@ -10,10 +10,10 @@ class Program
         return Deployment.RunAsync(() =>
         {
             // Create a KMS Key for S3 server-side encryption
-            var key = new Aws.Kms.Key("my-key");
+            var key = new Aws.Kms.Key("hello-world-key");
 
             // Create an AWS resource (S3 Bucket)
-            var bucket = new Aws.S3.Bucket("my-bucket", new Aws.S3.BucketArgs
+            var bucket = new Aws.S3.Bucket("hello-world-bucket", new Aws.S3.BucketArgs
             {
                 ServerSideEncryptionConfiguration = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationArgs
                 {
@@ -27,7 +27,6 @@ class Program
                     },
                 },
             });
-
             // Export the name of the bucket
             return new Dictionary<string, object> {
                 { "bucket_name", bucket.Id },
